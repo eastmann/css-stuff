@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Slide</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+    <div class="slide -left" id="left-side">
+        <h2 class="title">Today is going to be <span class="fancy">awesome</span></h2>
+    </div>
+    <div class="slide -right" id="right-side">
+        <h2 class="title">Today is going to be <span class="fancy">wonderful</span></h2>
+    </div>
+</body>
+
+<script>
+
+    const left = document.getElementById('left-side');
+
+    const handleOnMove = e => {
+        const p = Math.round(e.clientX / window.innerWidth * 100);
+        left.style.width = `${p}%`;
+    }
+
+    document.addEventListener('mousemove', e => { handleOnMove(e) });
+    document.addEventListener('touchmove', e => { handleOnMove(e.touches[0]) });
+
+</script>
+
+</html>
